@@ -7,6 +7,7 @@ keymap("n", "gb", "<C-o>", { desc = "Go back" })
 
 -- G to Gzz (center cursor after going to bottom)
 keymap("n", "G", ":normal! Gzz<CR>", { noremap = true, silent = true, desc = "Go to bottom and center" })
+keymap({ "n", "v" }, "gg", "gg0", { noremap = true, silent = true, desc = "Go to top and the beginning of the line" })
 
 -- Center cursor when moving up/down
 keymap("n", "<C-u>", "<C-u>zz", { desc = "Half page up and center" })
@@ -25,12 +26,5 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 -- Keep paste buffer when replacing text
 keymap("x", "<leader>p", '"_dP', { desc = "Paste without yank" })
 
--- Telescope search with visual mode support
-keymap({ "n", "v" }, "<leader>sg", function()
-  if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
-    vim.cmd('normal! "zy') -- Yank to z register
-    require("telescope.builtin").live_grep({ default_text = vim.fn.getreg("z") })
-  else
-    require("telescope.builtin").live_grep() -- Normal mode: empty prompt
-  end
-end, { desc = "Grep root dir" })
+-- Ctrl-a to select all and yank
+keymap("n", "<C-a>", ":%y<CR>", { desc = "Select all" })

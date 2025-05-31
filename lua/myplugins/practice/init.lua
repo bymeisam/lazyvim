@@ -1,0 +1,5 @@
+local localRequire = require("myplugins.util").requireWithBaseUrl("myplugins.practice")
+localRequire("lineduplication")
+localRequire("wordcout.keymaps")
+localRequire("spellchecking")
+localRequire("cursorline.cursorlinetoggle")
