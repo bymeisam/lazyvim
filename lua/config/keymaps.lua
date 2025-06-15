@@ -28,3 +28,4 @@ keymap("x", "<leader>p", '"_dP', { desc = "Paste without yank" })
 
 -- Ctrl-a to select all and yank
 keymap("n", "<C-a>", ":%y<CR>", { desc = "Select all" })
+keymap("i", "jj", "<Esc>", { noremap = false })
